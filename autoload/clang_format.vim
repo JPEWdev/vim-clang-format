@@ -133,6 +133,9 @@ function! clang_format#is_invalid() abort
             " XXX: Give up checking version
             return 0
         endif
+        if g:clang_format#check_version == 0
+            return 0
+        endif
         if v[0] < 3 || (v[0] == 3 && v[1] < 4)
             return 2
         endif
@@ -188,6 +191,7 @@ function! s:getg(name, default) abort
 endfunction
 
 let g:clang_format#command = s:getg('clang_format#command', 'clang-format')
+let g:clang_format#check_version = s:getg('clang_format#check_version', 1)
 let g:clang_format#extra_args = s:getg('clang_format#extra_args', "")
 if type(g:clang_format#extra_args) == type([])
     let g:clang_format#extra_args = join(g:clang_format#extra_args, " ")

@@ -86,6 +86,12 @@ Name of `clang-format`. If the name of command is not `clang-format`
 or you want to specify a command by absolute path, set this variable.
 Default value is `clang-format`.
 
+- `g:clang_format#check_version`
+
+If set to `0` the version of `clang-format` will not be checked. This is useful if a wrapper
+script is in use that doesn't correctly report the `clang-format` version.
+Default value is `1`.
+
 - `g:clang_format#extra_args`
 
 You can specify more extra options in `g:clang_format#extra_args` as String or List of String.
